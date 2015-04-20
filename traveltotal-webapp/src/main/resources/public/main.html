@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    <link rel="stylesheet" href="main.css" type="text/css">
+</head>
+
+<h2>User Search</h2>
+
+<body>
+
+
+<div ng-app="" ng-controller="userController">
+    <form class="form-inline">
+        <input ng-model="query" type="text"
+               placeholder="enter your filter here" autofocus>
+    </form>
+    <ul>
+        <li ng-repeat="u in users | filter:query | orderBy: 'lastName' ">
+            <b>name:</b> {{ u.lastName + ' ' + u.firstName }}<br>
+            <b>address:</b> {{ u.street + ', ' + u.city }}<br>
+            <b>phone:</b> {{ u.phone }}<br>
+            <b>age:</b> {{ u.age }}<br>
+            <hr>
+        </li>
+    </ul>
+</div>
+
+<script>
+  function userController($scope, $http) {
+    $http.get("http://localhost:8080/getUser?dealerId=4")
+    .success(function(response) {$scope.users = response;});
+  }
+
+</script>
+
+</body>
+</html>

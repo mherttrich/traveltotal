@@ -8,14 +8,17 @@ public class User {
     private final String lastName; // required
     private final int age; // optional
     private final String phone; // optional
-    private final String address; // optional
+    private final String street; // optional
+    private final String city; // optional
 
     private User(UserBuilder builder) {
         this.firstName = builder.firstName;
         this.lastName = builder.lastName;
         this.age = builder.age;
         this.phone = builder.phone;
-        this.address = builder.address;
+        this.street = builder.street;
+        this.city = builder.city;
+
     }
 
     public String getFirstName() {
@@ -34,24 +37,30 @@ public class User {
         return phone;
     }
 
-    public String getAddress() {
-        return address;
+    public String getStreet() {
+        return street;
     }
 
     public static class UserBuilder {
         private final String firstName;
         private final String lastName;
-        private int age;
+        private String street;
+        private String city;
         private String phone;
-        private String address;
+        private int age;
 
         public UserBuilder(String firstName, String lastName) {
             this.firstName = firstName;
             this.lastName = lastName;
         }
 
-        public UserBuilder age(int age) {
-            this.age = age;
+        public UserBuilder street(String street) {
+            this.street = street;
+            return this;
+        }
+
+        public UserBuilder city(String city) {
+            this.city = city;
             return this;
         }
 
@@ -60,8 +69,8 @@ public class User {
             return this;
         }
 
-        public UserBuilder address(String address) {
-            this.address = address;
+        public UserBuilder age(int age) {
+            this.age = age;
             return this;
         }
 

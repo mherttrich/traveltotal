@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
+import java.util.List;
 
 
 @RestController
@@ -19,7 +20,7 @@ public class UserController {
 
     @RequestMapping(value = "getUser", method = RequestMethod.GET)
     @ResponseBody
-    public User getUser(@RequestParam(value = "customerId", required = false) String customerId) {
+    public List<User> getUser(@RequestParam(value = "customerId", required = false) String customerId) {
 
         LOG.info("customerId:{}", customerId);
 
