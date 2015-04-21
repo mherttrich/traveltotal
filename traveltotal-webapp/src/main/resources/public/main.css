@@ -1,4 +1,29 @@
+/* http://www.w3schools.com  */
+
 ul
 {
     list-style-type: none;
+}
+
+#searchresult {
+    border-radius: 15px 50px;
+    background: #FFEBCC;
+    padding: 20px;
+    margin: 20px;
+    width: 300px;
+    box-shadow: 4px 4px grey;
+
+    font-size:12pt;
+    font-family:times new roman;
+    color:#000000;
+
+}
+
+#searchresult:hover {
+    background-color: #FFAD33;
+}
+
+#label{
+font-weight:bold;
+color:#666666
 }
