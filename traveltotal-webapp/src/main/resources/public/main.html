@@ -18,11 +18,12 @@
     </form>
     <ul>
         <li ng-repeat="u in users | filter:query | orderBy: 'lastName' ">
-            <b>name:</b> {{ u.lastName + ' ' + u.firstName }}<br>
-            <b>address:</b> {{ u.street + ', ' + u.city }}<br>
-            <b>phone:</b> {{ u.phone }}<br>
-            <b>age:</b> {{ u.age }}<br>
-            <hr>
+            <div id="searchresult">
+                <span id="label">name: </span> {{ u.lastName + ' ' + u.firstName }}<br>
+                <span id="label">adress: </span> {{ u.street + ', ' + u.city }}<br>
+                <span id="label">phone: </span> {{ u.phone }}<br>
+                <span id="label">age: </span> {{ u.age }}<br>
+            </div>
         </li>
     </ul>
 </div>
