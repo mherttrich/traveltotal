@@ -6,10 +6,8 @@
     <link rel="stylesheet" href="main.css" type="text/css">
 </head>
 
-<h2>User Search</h2>
-
 <body>
-
+<h2>User Search</h2>
 
 <div ng-app="" ng-controller="userController">
     <form class="form-inline">
@@ -20,7 +18,7 @@
         <li ng-repeat="u in users | filter:query | orderBy: 'lastName' ">
             <div id="searchresult">
                 <span id="label">name: </span> {{ u.lastName + ' ' + u.firstName }}<br>
-                <span id="label">adress: </span> {{ u.street + ', ' + u.city }}<br>
+                <span id="label">adress: </span> {{ u.street + ', ' + u.zipCode + ' ' + u.city }}<br>
                 <span id="label">phone: </span> {{ u.phone }}<br>
                 <span id="label">age: </span> {{ u.age }}<br>
             </div>
