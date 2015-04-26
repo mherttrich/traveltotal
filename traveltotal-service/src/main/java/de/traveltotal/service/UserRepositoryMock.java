@@ -31,6 +31,7 @@ public class UserRepositoryMock implements UserRepository {
                         .zipCode(u[4])
                         .city(u[5])
                         .phone(u[6])
+                        .age(Integer.valueOf(u[8]))
                         .build());
             }
         }
@@ -42,8 +43,13 @@ public class UserRepositoryMock implements UserRepository {
     }
 
     @Override
-    public List<User> findAllUser(String lastName) {
-        // TODO implement soon
-        throw new RuntimeException("not implemented now, sorry");
+    public User findUser(String lastName) {
+        for (User user : allUser) {
+            if (user.getLastName().equals(lastName)) {
+                return user;
+            }
+        }
+        //rather Optional??
+        return null;
     }
 }

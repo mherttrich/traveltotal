@@ -5,6 +5,15 @@ public class UserView {
     private String name;
     private String address;
     private String contact;
+    private boolean adult;
+
+    public boolean isAdult() {
+        return adult;
+    }
+
+    public void setAdult(boolean adult) {
+        this.adult = adult;
+    }
 
     public String getName() {
         return name;

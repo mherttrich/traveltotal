@@ -8,5 +8,5 @@ public interface UserRepository {
 
     public List<User> findAllUser();
 
-    public List<User> findAllUser(String lastName);
+    public User findUser(String lastName);
 }

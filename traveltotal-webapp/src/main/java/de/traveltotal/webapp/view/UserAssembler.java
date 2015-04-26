@@ -6,6 +6,7 @@ import org.springframework.util.StringUtils;
 
 public class UserAssembler {
     private static final String NON_EXISTING_CITY = "Bielefeld";
+    private static final short ADULT_AGE = 18;
 
     public static UserView assemble(User user) {
         UserView view = new UserView();
@@ -17,6 +18,7 @@ public class UserAssembler {
             view.setAddress(String.format("%s, %s %s", user.getStreet(), user.getZipCode(), NON_EXISTING_CITY));
         }
         view.setContact(user.getPhone());
+        view.setAdult(user.getAge() >= ADULT_AGE);
         return view;
     }
 }
