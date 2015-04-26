@@ -1,5 +1,6 @@
 package de.traveltotal.service;
 
+import com.google.common.base.Optional;
 import de.traveltotal.domain.User;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +17,7 @@ public class UserService {
         return userRepository.findAllUser();
     }
 
-    public User findUser(String lastname) {
+    public Optional<User> findUser(String lastname) {
         return userRepository.findUser(lastname);
     }
 }

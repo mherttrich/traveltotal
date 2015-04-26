@@ -1,6 +1,7 @@
 package de.traveltotal.service;
 
 
+import com.google.common.base.Optional;
 import com.google.common.collect.Lists;
 import de.traveltotal.domain.User;
 import org.slf4j.Logger;
@@ -43,13 +44,13 @@ public class UserRepositoryMock implements UserRepository {
     }
 
     @Override
-    public User findUser(String lastName) {
+    public Optional<User> findUser(String lastName) {
         for (User user : allUser) {
             if (user.getLastName().equals(lastName)) {
-                return user;
+                return Optional.of(user);
             }
         }
-        //rather Optional??
-        return null;
+
+        return Optional.absent();
     }
 }
