@@ -16,7 +16,7 @@
     </form>
 
     <div ng-repeat="u in users | filter:query | orderBy: 'name' "
-         ng-class="{'searchresult': u.adult, 'searchresult2': !u.adult}">
+         ng-class="{'searchresult': true, 'sr_red': u.adult, 'sr_green': !u.adult}">
         <span class="label">name: </span> {{ u.name }}<br>
         <span class="label">address: </span> {{ u.address }}<br>
         <span class="label">contact: </span> {{ u.contact }}<br>
@@ -29,6 +29,7 @@
     $http.get("http://localhost:8080/resource/user?dealerId=4")
     .success(function(response) {$scope.users = response;});
   }
+
 
 
 </script>

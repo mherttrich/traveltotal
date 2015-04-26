@@ -7,36 +7,29 @@ ul
 
 .searchresult {
     border-radius: 15px 50px;
+    padding: 20px;
+    margin: 20px;
+    width: 300px;
+    box-shadow: 4px 4px grey;
+
+    font-size:12pt;
+    font-family:times new roman;
+    color:#000000;
+}
+
+.sr_red {
     background: #FFEBCC;
-    padding: 20px;
-    margin: 20px;
-    width: 300px;
-    box-shadow: 4px 4px grey;
-
-    font-size:12pt;
-    font-family:times new roman;
-    color:#000000;
-
 }
 
-.searchresult2 {
-    border-radius: 15px 50px;
+.sr_green {
     background: #AAFFAA;
-    padding: 20px;
-    margin: 20px;
-    width: 300px;
-    box-shadow: 4px 4px grey;
-
-    font-size:12pt;
-    font-family:times new roman;
-    color:#000000;
 }
 
-
-.searchresult:hover {
+.sr_red:hover {
     background-color: #FFAD33;
 }
-.searchresult2:hover {
+
+.sr_green:hover {
     background-color: #33FF33;
 }
 
