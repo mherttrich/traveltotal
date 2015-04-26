@@ -1,7 +1,6 @@
 package de.traveltotal.webapp;
 
-import de.traveltotal.domain.User;
-import de.traveltotal.service.UserService;
+import de.traveltotal.webapp.view.UserView;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
@@ -11,20 +10,21 @@ import java.util.List;
 
 
 @RestController
+@RequestMapping(value = "resource/")
 public class UserController {
 
     private static final Logger LOG = LoggerFactory.getLogger(UserController.class);
 
     @Inject //inherited from parent
-    private UserService userService;
+    private UserApp userApp;
 
-    @RequestMapping(value = "getUser", method = RequestMethod.GET)
+    @RequestMapping(value = "user", method = RequestMethod.GET)
     @ResponseBody
-    public List<User> getUser(@RequestParam(value = "customerId", required = false) String customerId) {
+    public List<UserView> getUser(@RequestParam(value = "customerId", required = false) String customerId) {
 
         LOG.info("customerId:{}", customerId);
+        return userApp.getUser(customerId);
 
-        return userService.assembleAll();
     }
 
 

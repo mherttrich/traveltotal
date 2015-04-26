@@ -15,12 +15,12 @@
                placeholder="enter your filter here" autofocus>
     </form>
     <ul>
-        <li ng-repeat="u in users | filter:query | orderBy: 'lastName' ">
+        <li ng-repeat="u in users | filter:query | orderBy: 'name' ">
             <div id="searchresult">
-                <span id="label">name: </span> {{ u.lastName + ' ' + u.firstName }}<br>
-                <span id="label">adress: </span> {{ u.street + ', ' + u.zipCode + ' ' + u.city }}<br>
-                <span id="label">phone: </span> {{ u.phone }}<br>
-                <span id="label">age: </span> {{ u.age }}<br>
+                <span id="label">name: </span> {{ u.name }}<br>
+                <span id="label">address: </span> {{ u.address }}<br>
+                <span id="label">contact: </span> {{ u.contact }}<br>
+
             </div>
         </li>
     </ul>
@@ -28,7 +28,7 @@
 
 <script>
   function userController($scope, $http) {
-    $http.get("http://localhost:8080/getUser?dealerId=4")
+    $http.get("http://localhost:8080/resource/user?dealerId=4")
     .success(function(response) {$scope.users = response;});
   }
 

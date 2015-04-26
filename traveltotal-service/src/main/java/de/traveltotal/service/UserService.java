@@ -12,7 +12,7 @@ public class UserService {
     @Inject
     UserRepository userRepository;
 
-    public List<User> assembleAll() {
+    public List<User> getAllUser() {
         return userRepository.findAllUser();
     }
 }
