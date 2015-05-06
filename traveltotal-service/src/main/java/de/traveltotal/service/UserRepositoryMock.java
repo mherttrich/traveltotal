@@ -14,6 +14,11 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.List;
 
+/*
+This class just mocks a real service getting data from mongodb
+by providing some static users from csv file
+ */
+
 public class UserRepositoryMock implements UserRepository {
     private static final Logger LOG = LoggerFactory.getLogger(UserRepositoryMock.class);
 
@@ -22,24 +27,29 @@ public class UserRepositoryMock implements UserRepository {
     public UserRepositoryMock(Resource csvRepo) throws IOException {
 
         try (InputStream is = csvRepo.getInputStream();
-             BufferedReader br = new BufferedReader(new InputStreamReader(is));
+             BufferedReader br = new BufferedReader(new InputStreamReader(is))
         ) {
             String line;
             while ((line = br.readLine()) != null) {
-                String[] u = line.split(";");
-                allUser.add(new User.UserBuilder(u[1], u[2])
-                        .street(u[3])
-                        .zipCode(u[4])
-                        .city(u[5])
-                        .phone(u[6])
-                        .age(Integer.valueOf(u[8]))
-                        .build());
+                try {
+                    String[] u = line.split(";");
+                    allUser.add(new User.UserBuilder(u[1], u[2])
+                            .street(u[3])
+                            .zipCode(u[4])
+                            .city(u[5])
+                            .phone(u[6])
+                            .age(Integer.valueOf(u[8]))
+                            .build());
+                } catch (RuntimeException e) {
+                    LOG.warn("clould not map this line to a user: {}", line);
+                }
             }
         }
     }
 
     @Override
     public List<User> findAllUser() {
+
         return allUser;
     }
 

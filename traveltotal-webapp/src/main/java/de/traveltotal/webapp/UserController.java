@@ -18,12 +18,12 @@ public class UserController {
     @Inject //inherited from parent
     private UserApp userApp;
 
-    @RequestMapping(value = "user", method = RequestMethod.GET)
+    @RequestMapping(value = "user/{id}", method = RequestMethod.GET)
     @ResponseBody
-    public List<UserView> getUser(@RequestParam(value = "customerId", required = false) String customerId) {
+    public List<UserView> getUser(@PathVariable(value = "id") String id) {
 
-        LOG.info("customerId:{}", customerId);
-        return userApp.getUser(customerId);
+        LOG.info("customerId:{}", id);
+        return userApp.getUser(id);
 
     }
 

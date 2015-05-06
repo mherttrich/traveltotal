@@ -18,7 +18,7 @@ public class UserApp {
     private UserService userService;
 
     List<UserView> getUser(String customerId) {
-
+        //TODO unused customerId
         List<User> allUser = userService.getAllUser();
         List<UserView> views = Lists.newArrayList();
         for (User user : allUser) {
